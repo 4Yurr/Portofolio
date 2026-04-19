@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
-import aboutImage from '../assets/Profil.png'; // Impor gambar baru Anda
+// PERBAIKAN: Gunakan garis miring maju (/) untuk path file
+import aboutImage from '../assets/Profil.png'; 
 
 const About = () => {
   return (
