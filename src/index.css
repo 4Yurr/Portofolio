@@ -129,7 +129,9 @@ html {
   /* SIHIR BUNGKUSAN KACA ABU-ABU */
   background-color: rgba(148, 163, 184, 0.6); 
   backdrop-filter: blur(15px); 
-  -webkit-backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px);
+  width: 100%;
+  max-width: 1300px; 
   
   padding: 60px 80px; 
   border-radius: 30px; 

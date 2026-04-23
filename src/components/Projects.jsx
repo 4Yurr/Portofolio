@@ -38,7 +38,7 @@ const Projects = () => {
         <h2>Karya Saya</h2>
         
         {loading ? (
-          <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Memuat data dari Supabase...</p>
+          <p style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Loading...</p>
         ) : (
           <div className="projects-grid">
             {projects.map((proyek) => (
