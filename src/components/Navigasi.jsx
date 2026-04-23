@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
-// DIUBAH: Mengarah ke file CSS yang baru
-import './Navigasi.css'; 
+import { useState } from 'react';
 
-// DIUBAH: Nama komponen menjadi Navigasi
 const Navigasi = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // State untuk melacak bahasa yang sedang aktif (default: ID)
+  const [lang, setLang] = useState('ID');
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  // Fungsi untuk mengubah bahasa bolak-balik saat diklik
+  const toggleLanguage = () => {
+    setLang(lang === 'ID' ? 'EN' : 'ID');
+    // Catatan: Nanti logika untuk mengubah bahasa seluruh website bisa ditaruh di sini
   };
 
   return (
     <nav className="navbar">
-      <Link to="/" className="nav-logo">Yurr</Link>
+      <a href="#home" className="nav-logo">Yur</a>
 
-      <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
-        <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-        <li><Link to="/about" onClick={toggleMenu}>About Me</Link></li>
-        <li><Link to="/projects" onClick={toggleMenu}>Projects</Link></li>
-        <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
+      {/* Menu ditaruh di tengah/agak kiri */}
+      <ul className="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <div className="nav-toggler" onClick={toggleMenu}>
-        {isMenuOpen ? <FaTimes /> : <FaBars />}
+      {/* Fitur Bahasa di ujung kanan (Pengganti Garis 3) */}
+      <div className="lang-switcher" onClick={toggleLanguage}>
+        <span className={lang === 'ID' ? 'active-lang' : ''}>ID</span>
+        <span className="lang-divider">|</span>
+        <span className={lang === 'EN' ? 'active-lang' : ''}>EN</span>
       </div>
     </nav>
   );
 };
 
-// DIUBAH: Ekspor nama komponen yang baru
 export default Navigasi;

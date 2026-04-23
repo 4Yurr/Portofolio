@@ -2,12 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yurr | Web Developer Portfolio</title>
+    <title>Portofolio Yurr</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="finisher-header" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></div>
+
+    <div id="root" style="position: relative; z-index: 10;"></div>
+    
+    <script src="/finisher-header.es5.min.js"></script>
+    
+    <script type="text/javascript">
+      if (typeof FinisherHeader !== 'undefined') {
+        new FinisherHeader({
+          "count": 20,
+          "size": { "min": 2, "max": 40, "pulse": 0.1 },
+          "speed": { "x": { "min": 0, "max": 0.4 }, "y": { "min": 0, "max": 0.4 } },
+          "colors": {
+            "background": "#F8F9FA", // Warna Off-White
+            "particles": ["#ff926b", "#38bdf8", "#fb7185", "#0369ff"]
+          },
+          "blending": "screen",
+          "opacity": { "center": 1, "edge": 1 },
+          "skew": 0,
+          "shapes": ["s", "c"]
+        });
+      }
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

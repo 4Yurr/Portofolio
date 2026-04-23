@@ -1,56 +1,78 @@
-import React from 'react';
-import './Utama.css'; // Menggunakan file CSS yang baru
-import fotoProfil from '../assets/Profil.png'; // Pastikan nama file foto/logo Anda benar
-import { FiInstagram, FiLinkedin, FiDownload } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import profilImg from '../assets/Profil.png';
 
-// Nama komponen diubah dari Hero menjadi Utama
-const Utama = () => { 
+const Utama = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { staggerChildren: 0.2, duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    // className diubah agar konsisten
-    <section className="utama-container">
-      <div className="utama-content">
-        <p className="utama-subtitle">YURADDIN</p>
-        <h1 className="utama-title">
-          HAYY<br />
-          I'M YURADDIN
-        </h1>
-        <p className="utama-description">
-          Mahasiswa Program Studi Teknik Komputer yang Memiliki Minat Besar Pada AI dan Machine Learning Serta Berpengalaman dalam Pengembangan Web dan Aplikasi Mobile.
-        </p>
-
-        {/* Bagian tombol ini bisa tetap menggunakan className lama agar tidak perlu mengubah CSS-nya */}
-        <div className="hero-buttons">
-          <a href="/CV.pdf" className="btn btn-primary" download="Yuraddin_CV.pdf">
-            <FiDownload style={{ marginRight: '8px' }} />
-            Download CV
-          </a>
-          <div className="social-icons">
-            <a 
-              href="https://www.instagram.com/__yrdn/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FiInstagram />
+    <section className="hero-container" id="home">
+      
+      {/* INI KUNCINYA: className harus "hero-card" agar CSS abu-abu menyala! */}
+      <motion.div 
+        className="hero-card"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        
+        {/* Bagian Kiri: Teks */}
+        <div className="hero-text-section">
+          <motion.h3 variants={itemVariants} className="hero-greeting">
+            Halo, saya
+          </motion.h3>
+          <motion.h1 variants={itemVariants} className="hero-title">
+            Yuraddin
+          </motion.h1>
+          <motion.h2 variants={itemVariants} className="hero-subtitle">
+            Junior AI Engineer
+          </motion.h2>
+          <motion.p variants={itemVariants} className="hero-description">
+            Mahasiswa Teknik Komputer dengan minat pada AI dan Computer Vision, serta berpengalaman dalam pengembangan web, aplikasi mobile, dan desain UI/UX.
+          </motion.p>
+          
+          <motion.div variants={itemVariants} className="hero-buttons">
+            <a href="/CV.pdf" download="CV_Yuraddin.pdf" className="btn-primary">
+             Unduh CV
             </a>
-            <a 
-              href="https://www.linkedin.com/in/yuraddin-b0302b2aa/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FiLinkedin />
-            </a>
-          </div>
+            <div className="social-links">
+              <a href="https://github.com/4Yurr" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <FaGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/yuraddin-b0302b2aa/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <FaLinkedin />
+              </a>
+              <a href="https://www.instagram.com/__yrdn/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <FaInstagram />
+              </a>
+            </div>
+          </motion.div>
         </div>
-      </div>
 
-      <div className="utama-image">
-        <img src={fotoProfil} alt="Foto Profil" />
-        <div className="decorative-sphere sphere1"></div>
-        <div className="decorative-sphere sphere2"></div>
-      </div>
+        {/* Bagian Kanan: Foto */}
+        <motion.div className="hero-visual-section" variants={itemVariants}>
+          <div className="hero-image-placeholder">
+            <img src={profilImg} alt="Foto Profil Yuraddin" className="profil-img" />
+          </div>
+        </motion.div>
+
+      </motion.div>
+
     </section>
   );
 };
 
-// Pastikan export juga diubah
 export default Utama;
