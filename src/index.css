@@ -122,7 +122,7 @@ html {
 
 /* 6. ABOUT SECTION */
 .about-content { 
-  width: 100%; 
+  width: 100%;
   max-width: 1300px; /* Lebar disamakan dengan Hero Card agar konsisten */
   margin: 0 auto; 
   
