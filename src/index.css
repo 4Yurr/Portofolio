@@ -31,53 +31,59 @@ html {
   padding: 80px 10%; 
 }
 
-/* 4. HERO SECTION (UTAMA) */
+/* ========================================================
+   4. HERO SECTION (UTAMA) 
+   ======================================================== */
 .hero-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 5% 50px 5%;
+  /* KUNCI 1: Padding kiri-kanan disamakan persis dengan .section-container */
+  padding: 120px 5% 50px 5%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* SIHIR "BUNGKUSAN" KARTU HERO (Sesuai Gambar 2) */
 .hero-card {
+  width: 100%; 
+  max-width: 1200px; /* KUNCI 2: Diturunkan jadi 1200px agar aman di zoom 100% layar laptop standar */
+  margin: 0 auto; 
+  box-sizing: border-box;
+  
+  /* KUNCI 3: Flexbox agar foto & teks berdampingan */
   display: flex;
-  flex-direction: row; /* Kunci agar Teks & Foto selalu berdampingan Kiri-Kanan */
   align-items: center;
   justify-content: space-between;
   gap: 50px;
-  width: 100%;
-  max-width: 1300px;
   
-  /* Background Abu-abu dengan Transparansi 60% */
+  /* Background Kaca */
   background-color: rgba(148, 163, 184, 0.6); 
-  backdrop-filter: blur(5px); 
-  -webkit-backdrop-filter: blur(5px); 
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px); 
   
-  padding: 100px;
+  padding: 80px; /* Sedikit diturunkan agar isinya tidak kepenuhan */
   border-radius: 30px; 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.4); 
 }
 
-/* PENGATURAN TEKS (KIRI) */
+/* Teks Kiri */
 .hero-text-section { 
   flex: 1;
-  
 }
 .hero-greeting { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; font-weight: bold; }
 .hero-title { font-size: 4rem; margin-bottom: 10px; color: var(--text-main); line-height: 1.1; }
 .hero-subtitle { font-size: 2rem; color: var(--text-muted); margin-bottom: 20px; }
 .hero-description { font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 30px; }
 
-/* PENGATURAN TOMBOL & IKON SOSMED */
+/* Tombol & Sosmed */
 .hero-buttons { display: flex; align-items: center; gap: 25px; }
 .social-links { display: flex; gap: 15px; }
 .social-icon { font-size: 1.8rem; color: var(--text-muted); transition: all 0.3s ease; }
 .social-icon:hover { color: var(--accent); transform: translateY(-3px); }
 
-/* PENGATURAN FOTO (KANAN) */
+/* Foto Kanan */
 .hero-visual-section {
   flex: 1;
   display: flex;
@@ -85,16 +91,12 @@ html {
 }
 
 .hero-image-placeholder {
-  /* Lebar dan tinggi KITA SAMAKAN agar bisa jadi lingkaran sempurna */
   width: 350px;
   height: 350px; 
   background-color: transparent; 
-  
-  /* INI KUNCINYA: Mengubah kelengkungan menjadi bulat sempurna */
   border-radius: 50%; 
-  
   box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-  transform: translateX(60px);
+  /* transform: translateX(60px); <-- INI DIHAPUS agar layout tidak rusak */
 }
 
 .profil-img {
@@ -104,7 +106,9 @@ html {
   border-radius: 50%;
 }
 
-/* 5. TOMBOL MEWAH */
+/* ========================================================
+   5. TOMBOL MEWAH 
+   ======================================================== */
 .btn-primary, .btn-outline {
   padding: 12px 28px;
   border-radius: 8px;
@@ -120,13 +124,23 @@ html {
 .btn-outline { background-color: transparent; color: var(--accent); border: 2px solid var(--accent); }
 .btn-outline:hover { background-color: var(--accent); color: white; transform: translateY(-3px); }
 
-/* 6. ABOUT SECTION */
-.about-content { 
+/* ========================================================
+   6. ABOUT SECTION 
+   ======================================================== */
+.section-container {
+  /* KUNCI 4: Wadah luar About harus punya jarak 5% yang sama dengan hero-container! */
   width: 100%;
-  max-width: 1300px; /* Lebar disamakan dengan Hero Card agar konsisten */
+  padding: 80px 5%; 
+  box-sizing: border-box;
+}
+
+.about-content {
+  width: 100%; 
+  max-width: 1200px; /* KUNCI 5: Ukurannya sama persis 1200px dengan Hero Card */
   margin: 0 auto; 
+  box-sizing: border-box; 
   
-  /* SIHIR BUNGKUSAN KACA ABU-ABU */
+  /* Background Kaca */
   background-color: rgba(148, 163, 184, 0.6); 
   backdrop-filter: blur(15px); 
   -webkit-backdrop-filter: blur(15px);
@@ -145,16 +159,15 @@ html {
   margin-top: 0; 
 }
 
-/* Wadah teks paragraf */
+/* Teks Paragraf */
 .about-text-container {
   width: 100%;
   margin-bottom: 50px;
 }
-
 .about-text-container p {
   font-size: 1.1rem; 
   line-height: 1.8; 
-  color: var(--text-main); /* Menggunakan warna gelap agar mudah dibaca di atas abu-abu */
+  color: var(--text-main); 
   text-align: justify; 
   margin-bottom: 20px;
 }
@@ -164,10 +177,9 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah putih transparan */
+  border-top: 1px solid rgba(255, 255, 255, 0.3); 
   padding-top: 30px;
 }
-
 .tech-title {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -176,17 +188,15 @@ html {
   margin-bottom: 30px;
   font-weight: 700;
 }
-
 .tech-dock {
   display: inline-flex;
   gap: 30px;
-  background-color: rgba(255, 255, 255, 0.5); /* Rak kaca putih terang */
+  background-color: rgba(255, 255, 255, 0.5); 
   padding: 15px 40px;
-  border-radius: 100px; /* Bentuk Pil */
+  border-radius: 100px; 
   box-shadow: 0 10px 30px rgba(0,0,0,0.05), inset 0 2px 5px rgba(255,255,255,0.8);
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
-
 .tech-item {
   font-size: 2.5rem;
   display: flex;
@@ -194,11 +204,8 @@ html {
   align-items: center;
   position: relative;
   cursor: pointer;
-  /* Animasi membal (spring) bawaan CSS */
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-/* Tulisan Nama Teknologi (Tooltip) yang tersembunyi di awal */
 .tech-item .tooltip {
   position: absolute;
   top: -45px;
@@ -215,8 +222,6 @@ html {
   white-space: nowrap;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-
-/* Segitiga kecil (panah) di bawah kotak Tooltip */
 .tech-item .tooltip::after {
   content: '';
   position: absolute;
@@ -227,14 +232,11 @@ html {
   border-style: solid;
   border-color: var(--text-main) transparent transparent transparent;
 }
-
-/* EFEK AJAIB SAAT MOUSE LEWAT (HOVER) */
 .tech-item:hover {
-  transform: scale(1.3) translateY(-15px); /* Logo membesar dan melompat */
+  transform: scale(1.3) translateY(-15px); 
 }
-
 .tech-item:hover .tooltip {
-  opacity: 1; /* Teks nama muncul */
+  opacity: 1; 
   transform: translateY(0);
 }
 
